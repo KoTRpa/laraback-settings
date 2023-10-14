@@ -1,0 +1,48 @@
+{
+    "name": "kma/laraback-settings",
+    "type": "library",
+    "version": "1.0.0",
+    "description": "Database stored settings for laravel application",
+    "keywords": [
+        "Laravel", "Laraback", "Settings"
+    ],
+    "homepage": "https://github.com/KoTRpa/laraback-settings",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxim Kashkin",
+            "email": "4kotrpa@gmail.com",
+            "homepage": "https://github.com/kotrpa"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^10.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KMA\\LarabackSettings\\LarabackSettingsServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "KMA\\LarabackSettings\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KMA\\LarabackSettings\\Tests\\": "tests/"
+        }
+    }
+}
