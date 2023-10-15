@@ -15,12 +15,23 @@ php artisan migrate
 ```php
 use function KMA\LarabackSettings\setting;
 ...
-// get value. null returned if setting not founded
-setting('SettingName')->get()
-// or you can set the default return value
-setting('SettingName')->get('missing')
-// set setting. only string values are accepted
-setting('SettingName')->set('value')
-// delete setting
-setting('SettingName')->delete()
+// get setting value. null returned if setting not founded
+setting('SettingName')
+// or
+setting()->get('SettingName')
+
+// with default if nothing will found
+setting('SettingName', 'default')
+// or 
+setting()->get('SettingName', 'default')
+
+// set setting value. only string values are accepted
+setting(['SettingName' => 'value'])
+// or
+setting()->set(['SettingName' => 'value'])
+// or
+setting()->set('SettingName', 'value')
+
+// delete entire setting
+setting()->delete('SettingName')
 ```

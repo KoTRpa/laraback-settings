@@ -8,6 +8,15 @@ use KMA\LarabackSettings\Services\SettingsService;
 
 use function app;
 
-function setting(string $key): SettingsService {
-    return app(SettingsService::class, ['key' => $key]);
+function setting(string|array|null $key = null, ?string $default = null): SettingsService|string|null
+{
+    if (is_null($key)) {
+        return app(SettingsService::class);
+    }
+
+    if (is_array($key)) {
+        return app(SettingsService::class)->set($key);
+    }
+
+    return app(SettingsService::class)->get($key, $default);
 }
